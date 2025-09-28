@@ -1,0 +1,72 @@
+# Root-level BUILD.bazel for monorepo utilities
+
+load("@bazel_skylib//rules:common_settings.bzl", "string_flag")
+
+# ─────────────────────────────
+# Go support: Gazelle
+# ─────────────────────────────
+# Gazelle will auto-generate and maintain BUILD files for Go code.
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# Runs gazelle in update mode to regenerate BUILD files for Go
+gazelle(
+    name = "gazelle",
+)
+
+# ─────────────────────────────
+# Aggregate test target
+# ─────────────────────────────
+# Collects all tests across languages into one convenient entry point.
+alias(
+    name = "all_tests",
+    actual = "//:tests",
+    visibility = ["//visibility:public"],
+)
+
+# A filegroup placeholder for test discovery; expand with actual test deps
+filegroup(
+    name = "tests",
+    srcs = [],
+    visibility = ["//visibility:public"],
+)
+
+# ─────────────────────────────
+# Lint / formatting placeholders
+# ─────────────────────────────
+# You can wire these up with rules like buildifier, eslint, black, etc.
+
+# Example: placeholder for Python lint (black)
+filegroup(
+    name = "lint_python",
+    srcs = glob(["**/*.py"]),
+)
+
+# Example: placeholder for Node lint (eslint)
+filegroup(
+    name = "lint_node",
+    srcs = glob(["**/*.{js,ts,tsx}"]),
+)
+
+# Example: placeholder for Go lint
+filegroup(
+    name = "lint_go",
+    srcs = glob(["**/*.go"]),
+)
+
+# Example: placeholder for Java lint (checkstyle/spotbugs)
+filegroup(
+    name = "lint_java",
+    srcs = glob(["**/*.java"]),
+)
+
+# Convenience aggregate target
+filegroup(
+    name = "lint",
+    srcs = [
+        ":lint_python",
+        ":lint_node",
+        ":lint_go",
+        ":lint_java",
+    ],
+    visibility = ["//visibility:public"],
+)

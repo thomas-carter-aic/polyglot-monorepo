@@ -1,0 +1,55 @@
+# ─────────────────────────────
+# Global settings
+# ─────────────────────────────
+common --announce_rc
+common --color=yes
+common --curses=yes
+
+# Use Bzlmod for external deps
+common --enable_bzlmod
+
+# Build in parallel (adjust for your machine/CI)
+build --jobs=auto
+
+# Better incremental performance
+build --experimental_inmemory_jdeps_files
+build --experimental_inmemory_dotd_files
+
+# Enable remote caching if configured
+# build --remote_cache=http://bazel-remote:8080
+
+# Reproducibility
+build --strict_system_includes
+build --sandbox_debug
+
+# ─────────────────────────────
+# Language-specific tuning
+# ─────────────────────────────
+
+# Java: faster compilation
+build --experimental_strict_java_deps=ERROR
+
+# Python: use hermetic python toolchain
+build --incompatible_enable_cc_toolchain_resolution
+
+# Node/TS: suppress noisy progress
+build --experimental_ui_deduplicate
+build --experimental_ui_limit_console_output=50
+
+# Go: enforce static linking
+build --features=staticlink
+
+# ─────────────────────────────
+# Test settings
+# ─────────────────────────────
+test --test_output=errors
+test --jobs=auto
+test --flaky_test_attempts=2
+test --nocache_test_results
+test --test_timeout=300,900,1800,3600
+
+# ─────────────────────────────
+# CI-specific config
+# ─────────────────────────────
+build:ci --config=release
+test:ci --test_output=all

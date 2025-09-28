@@ -1,0 +1,25 @@
+{
+  "name": "Polyglot Monorepo Dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "editor.formatOnSave": true,
+    "go.toolsManagement.autoUpdate": true,
+    "python.pythonPath": "/usr/bin/python3"
+  },
+  "extensions": [
+    "bazelbuild.vscode-bazel",
+    "golang.go",
+    "ms-python.python",
+    "redhat.java",
+    "ms-vscode.vscode-typescript-next",
+    "ms-azuretools.vscode-docker",
+    "eamodio.gitlens"
+  ],
+  "forwardPorts": [3000, 5000, 8080],
+  "postCreateCommand": "bazel build //... || true",
+  "remoteUser": "vscode"
+}

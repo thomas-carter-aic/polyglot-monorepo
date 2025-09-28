@@ -1,0 +1,4 @@
+# WORKSPACE (stub)
+workspace(name = "example_monorepo")
+
+# For legacy tools only. All deps are declared in MODULE.bazel.

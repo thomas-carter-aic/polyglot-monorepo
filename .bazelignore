@@ -1,0 +1,38 @@
+# ── Bazel build output dirs ──────────────────────────────
+bazel-bin
+bazel-out
+bazel-testlogs
+# Bazel creates a symlink with your repo name (adjust accordingly)
+bazel-example-monorepo
+
+# ── Node / TypeScript ───────────────────────────────────
+node_modules
+**/node_modules
+dist
+build
+coverage
+
+# ── Python ──────────────────────────────────────────────
+.venv
+venv
+**/.venv
+__pycache__
+*.egg-info
+
+# ── Java / JVM ──────────────────────────────────────────
+# (Bazel builds Java hermetically, but tools like IntelliJ may create these)
+out
+target
+
+# ── Go ──────────────────────────────────────────────────
+# Normally no ignored dirs — Go deps are via rules_go.
+# If you ever vendor Go deps outside of Bazel, add:
+vendor
+
+# ── Editor / IDE junk ───────────────────────────────────
+.vscode
+.idea
+*.iml
+
+# ── Misc temporary / generated ──────────────────────────
+tmp

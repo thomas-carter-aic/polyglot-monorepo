@@ -1,0 +1,60 @@
+# ─────────────────────────────
+# Bazel outputs
+# ─────────────────────────────
+bazel-*
+bazel-bin/
+bazel-out/
+bazel-testlogs/
+
+# ─────────────────────────────
+# Node / JS / TS
+# ─────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log*
+dist/
+build/
+coverage/
+
+# ─────────────────────────────
+# Python
+# ─────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# ─────────────────────────────
+# Java / JVM
+# ─────────────────────────────
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+out/
+target/
+
+# ─────────────────────────────
+# Go
+# ─────────────────────────────
+# (Bazel manages Go deps; only ignore vendor if you ever `go mod vendor`)
+vendor/
+
+# ─────────────────────────────
+# Editors / IDEs
+# ─────────────────────────────
+.vscode/
+.idea/
+*.iml
+
+# ─────────────────────────────
+# OS / misc
+# ─────────────────────────────
+.DS_Store
+Thumbs.db
+.tmp/

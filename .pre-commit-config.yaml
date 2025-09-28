@@ -1,0 +1,42 @@
+repos:
+  # Python: black + flake8
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.1.1
+    hooks:
+      - id: flake8
+
+  # Go: gofmt
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v1.0.0
+    hooks:
+      - id: go-fmt
+
+  # JavaScript / TypeScript: eslint + prettier
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v9.13.0
+    hooks:
+      - id: eslint
+        additional_dependencies: [eslint@9.13.0]
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.3.3
+    hooks:
+      - id: prettier
+
+  # Bazel: buildifier
+  - repo: https://github.com/keith/pre-commit-buildifier
+    rev: 6.4.0
+    hooks:
+      - id: buildifier
+
+  # General: trailing whitespace, end-of-file fixer
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  dev:
+    build: .
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: devdb
+    ports:
+      - "5432:5432"

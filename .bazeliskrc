@@ -1,0 +1,12 @@
+# Ensure Bazelisk uses the same version pinned in .bazelversion
+USE_BAZEL_VERSION=8.3.1
+
+# Always enable Bzlmod (MODULE.bazel)
+BAZELISK_BASE_FLAGS=--enable_bzlmod
+
+# Optional: where Bazelisk caches Bazel binaries (defaults to ~/.cache/bazelisk)
+# Uncomment if you want a custom cache path (useful in CI):
+# BAZELISK_HOME=/workspace/.cache/bazelisk
+
+# Fallback version if .bazelversion is missing (keeps everything consistent)
+BAZELISK_VERSION=8.3.1

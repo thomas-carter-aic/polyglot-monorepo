@@ -1,0 +1,16 @@
+{
+  "name": "polyglot-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Build JS/TS with Bazel'",
+    "test": "echo 'Run tests with Bazel'"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "eslint": "^9.13.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

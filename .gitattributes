@@ -1,0 +1,61 @@
+# ─────────────────────────────
+# Global text normalization
+# ─────────────────────────────
+* text=auto eol=lf
+
+# ─────────────────────────────
+# Bazel / Starlark
+# ─────────────────────────────
+*.bzl text diff=python
+BUILD     text diff=starlark
+BUILD.*   text diff=starlark
+WORKSPACE text diff=starlark
+MODULE.bazel text diff=starlark
+
+# ─────────────────────────────
+# Go
+# ─────────────────────────────
+*.go text diff=go
+
+# ─────────────────────────────
+# Python
+# ─────────────────────────────
+*.py text diff=python
+
+# ─────────────────────────────
+# Java
+# ─────────────────────────────
+*.java text diff=java
+
+# ─────────────────────────────
+# Node / JS / TS
+# ─────────────────────────────
+*.js  text diff=javascript
+*.jsx text diff=javascript
+*.ts  text diff=javascript
+*.tsx text diff=javascript
+*.json text
+*.yml  text
+*.yaml text
+
+# ─────────────────────────────
+# Markdown & docs
+# ─────────────────────────────
+*.md   text diff=markdown
+*.txt  text
+
+# ─────────────────────────────
+# Binary files
+# ─────────────────────────────
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.jar  binary
+*.zip  binary
+*.gz   binary
+*.tgz  binary
+*.exe  binary
+*.dll  binary
